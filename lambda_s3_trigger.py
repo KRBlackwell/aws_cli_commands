@@ -25,4 +25,7 @@ def lambda_handler(event, context):
    for row in reader:
       print(str.format("Year - {}, Mileage - {}, Price - {}", row[0], row[1], row[2]))
 
-    
+# when you're done with the code click "deploy" to save it
+# you can go to "test" and use s3-put template to have it create a test event for you
+# can go to lambda tab > "monitor" > "metrics" to get cloudwatch metrics
+#   the log stream will show that print Year - Mileage - Price - 
