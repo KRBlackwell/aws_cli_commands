@@ -17,6 +17,12 @@ def lambda_handler(event, context):
    print(bucket)
    print(key)
 
+   response = s3Client.get_object(Bucket=bucket, Key=key)
 
+   data = response['Body'].read().decode('utf-8')
+   reader = csv.reader(io.StringIO(data))
+   next(reader)
+   for row in reader:
+      print(str.format("Year - {}, Mileage - {}, Price - {}", row[0], row[1], row[2]))
 
     
